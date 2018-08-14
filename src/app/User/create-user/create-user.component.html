@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <form>
+        <div class="row">
+          <div class="form-group col">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" name="n1" [(ngModel)]="user.name" autocomplete="off" maxlength="60" placeholder="Nombre Completo"
+              required>
+          </div>
+          <div class="form-group col">
+            <label for="birthdate">Fecha Nacimiento</label>
+            <input type="date" class="form-control" id="birthdate" name="n2" [(ngModel)]="user.birthDate" autocomplete="off" placeholder="Fecha Nacimiento"
+              required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="address">Dirección</label>
+            <input type="text" class="form-control" id="address" maxlength="80" name="n3" [(ngModel)]="user.address" autocomplete="off"
+              placeholder="Dirección Residencia" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="documentType">Tipo de Documento</label>
+            <select class="custom-select" name="n4" id="documentType" [(ngModel)]="user.documentType" required>
+              <option *ngFor="let type of documentTypes" [ngValue]="type.id">{{type.descripcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="idNumber">Número de Documento</label>
+            <input type="text" class="form-control" id="idNumber" maxlength="20" name="n5" [(ngModel)]="user.documentNumber" autocomplete="off"
+              placeholder="Número de Documento" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="countryId">Pais</label>
+            <select class="custom-select" name="n6" id="countryId" [(ngModel)]="user.countryId" required>
+              <option selected>Pais</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="stateId">Departamento</label>
+            <select class="custom-select" name="n7" [(ngModel)]="user.stateId" required>
+              <option selected>Departamento</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label for="cityId">Ciudad</label>
+            <select class="custom-select" name="n8" [(ngModel)]="user.cityId" required>
+              <option selected>Ciudad</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary custom-btn" (click)="crear()">Submit</button>
+      </form>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+<ngx-spinner bdColor="rgba(255,255,255,0.94)" size="large" color="#003891" type="pacman"></ngx-spinner>

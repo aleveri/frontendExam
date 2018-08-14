@@ -1,0 +1,26 @@
+.custom-btn {
+    background-color: transparent;
+    border: 1px solid #003891;
+    color: #003891;
+    margin: auto;
+    display: block;
+    margin: 20px auto;
+}
+.custom-btn:hover
+{
+    background-color: #003891;
+    border: 1px solid #003891;
+    color:#fff;
+}
+.row{
+    margin-top: 20px;
+}
+
+.title{
+    margin: auto;
+    display: block;
+}
+.no-margin
+{
+    margin: auto;
+}
