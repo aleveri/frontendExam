@@ -25,13 +25,15 @@ export class UserService {
 
   list(params: any[]) {
     return this.http.get(`${AppConfiguracion.API_URL}/User/List`, {
-      params: new HttpParams().append('pagina', params[0]).append('cantidadPagina', params[1])
+      headers: this.appConfiguracion.getHeader(),
+      params: new HttpParams().append('page', params[0]).append('pageSize', params[1])
     });
   }
 
   borrar(param: string) {
     return this.http.delete(`${AppConfiguracion.API_URL}/User`, {
-      params: new HttpParams().append('pagina', param)
+      headers: this.appConfiguracion.getHeader(),
+      params: new HttpParams().append('param', param)
     });
   }
 

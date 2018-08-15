@@ -11,6 +11,7 @@ export class AppConfiguracion {
     getHeader(): HttpHeaders {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json');
+        headers = headers.set('pst', 'Pruebas_ALeveri');
         return headers;
     }
 }

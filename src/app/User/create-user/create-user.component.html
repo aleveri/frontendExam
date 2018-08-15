@@ -40,35 +40,26 @@
         <div class="row">
           <div class="form-group col">
             <label for="countryId">Pais</label>
-            <select class="custom-select" name="n6" id="countryId" [(ngModel)]="user.countryId" required>
-              <option selected>Pais</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select" name="n6" id="countryId" [(ngModel)]="user.countryId" (ngModelChange)="cargarDepartamentos($event)" required>
+              <option *ngFor="let country of countries" [ngValue]="country.id">{{country.name}}</option>
             </select>
           </div>
         </div>
         <div class="row">
           <div class="form-group col">
             <label for="stateId">Departamento</label>
-            <select class="custom-select" name="n7" [(ngModel)]="user.stateId" required>
-              <option selected>Departamento</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select" name="n7" [(ngModel)]="user.stateId" (ngModelChange)="cargarCiudades($event)" required>
+              <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
             </select>
           </div>
           <div class="form-group col">
             <label for="cityId">Ciudad</label>
             <select class="custom-select" name="n8" [(ngModel)]="user.cityId" required>
-              <option selected>Ciudad</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option *ngFor="let city of cities" [ngValue]="city.id">{{city.name}}</option>
             </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary custom-btn" (click)="crear()">Submit</button>
+        <button type="submit" class="btn btn-primary custom-btn"  [disabled]="!form.valid" (click)="crear()">Guardar</button>
       </form>
     </div>
     <div class="col-2"></div>

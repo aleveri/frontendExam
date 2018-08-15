@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../Modelos/User';
 import { UserService } from '../../Servicios/user.service';
 import { CatalogService } from '../../Servicios/catalog.service';
 import { DocumentTypeEnum } from '../../Modelos/DocumentTypeEnum';
 import { NgxSpinnerService } from '../../../../node_modules/ngx-spinner';
 import { Router } from '../../../../node_modules/@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -13,11 +14,13 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class CreateUserComponent implements OnInit {
 
+  @ViewChild(NgForm) form;
+  
   user: User;
   documentTypes: any[];
-  paises: any[];
-  departamentos: any[];
-  ciudades: any[];
+  countries: any[];
+  states: any[];
+  cities: any[];
 
   constructor(private userService: UserService,
     private spinner: NgxSpinnerService,
@@ -30,7 +33,7 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     this.catalogService.listByType(['1', '10', '0']).subscribe((x: any) => {
-      this.paises = x;
+      this.countries = x.resultado;
       this.spinner.hide();
     }), (error) => {
       this.spinner.hide();
@@ -41,7 +44,7 @@ export class CreateUserComponent implements OnInit {
   cargarDepartamentos(param) {
     this.spinner.show();
     this.catalogService.listByParent(['1', '10', param]).subscribe((x: any) => {
-      this.departamentos = x;
+      this.states = x.resultado;
       this.spinner.hide();
     });
   }
@@ -49,7 +52,7 @@ export class CreateUserComponent implements OnInit {
   cargarCiudades(param) {
     this.spinner.show();
     this.catalogService.listByParent(['1', '10', param]).subscribe((x: any) => {
-      this.ciudades = x;
+      this.cities = x.resultado;
       this.spinner.hide();
     });
   }
