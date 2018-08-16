@@ -24,3 +24,15 @@
 {
     margin: auto;
 }
+.section
+{
+    background-color: #003891;
+    border:solid transparent;
+}
+.form-container
+{
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 20px;
+}
