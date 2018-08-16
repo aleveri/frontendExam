@@ -12,12 +12,14 @@ export class CatalogService {
 
   listByType(params: any[]) {
     return this.http.get(`${AppConfiguracion.API_URL}/Catalog/ListByType`, {
+      headers: this.appConfiguracion.getHeader(),
       params: new HttpParams().append('page', params[0]).append('pageSize', params[1]).append('type', params[2])
     });
   }
 
   listByParent(params: any[]) {
     return this.http.get(`${AppConfiguracion.API_URL}/Catalog/ListByParent`, {
+      headers: this.appConfiguracion.getHeader(),
       params: new HttpParams().append('page', params[0]).append('pageSize', params[1]).append('parent', params[2])
     });
   }

@@ -1,6 +1,7 @@
 import { Catalog } from "./Catalog";
 
 export class User {
+    id: string;
     name: string;
     address: string;
     birthDate: Date;
