@@ -1,68 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <form>
-        <div class="row">
-          <div class="form-group col">
-            <label for="name">Nombre</label>
-            <input type="text" class="form-control" id="name" name="n1" [(ngModel)]="user.name" autocomplete="off" maxlength="60" placeholder="Nombre Completo"
-              required>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8 ">
+        <form class="form-container">
+          <div class="row">
+            <div class="form-group col">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="name" name="n1" [(ngModel)]="user.name" autocomplete="off" maxlength="60" required>
+            </div>
+            <div class="form-group col">
+              <label for="birthdate">Fecha Nacimiento</label>
+              <input type="date" class="form-control" id="birthdate" name="n2" [(ngModel)]="user.birthDate" autocomplete="off" required>
+            </div>
           </div>
-          <div class="form-group col">
-            <label for="birthdate">Fecha Nacimiento</label>
-            <input type="date" class="form-control" id="birthdate" name="n2" [(ngModel)]="user.birthDate" autocomplete="off" placeholder="Fecha Nacimiento"
-              required>
+          <div class="row">
+            <div class="form-group col">
+              <label for="address">Dirección</label>
+              <input type="text" class="form-control" id="address" maxlength="80" name="n3" [(ngModel)]="user.address" autocomplete="off"
+                required>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col">
-            <label for="address">Dirección</label>
-            <input type="text" class="form-control" id="address" maxlength="80" name="n3" [(ngModel)]="user.address" autocomplete="off"
-              placeholder="Dirección Residencia" required>
+          <div class="row">
+            <div class="form-group col">
+              <label for="documentType">Tipo de Documento</label>
+              <select class="custom-select" name="n4" id="documentType" [(ngModel)]="user.documentType" required>
+                <option *ngFor="let type of documentTypes" [ngValue]="type.id">{{type.descripcion}}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col">
-            <label for="documentType">Tipo de Documento</label>
-            <select class="custom-select" name="n4" id="documentType" [(ngModel)]="user.documentType" required>
-              <option *ngFor="let type of documentTypes" [ngValue]="type.id">{{type.descripcion}}</option>
-            </select>
+          <div class="row">
+            <div class="form-group col">
+              <label for="idNumber">Número de Documento</label>
+              <input type="text" class="form-control" id="idNumber" maxlength="20" name="n5" [(ngModel)]="user.documentNumber" autocomplete="off"
+                required>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col">
-            <label for="idNumber">Número de Documento</label>
-            <input type="text" class="form-control" id="idNumber" maxlength="20" name="n5" [(ngModel)]="user.documentNumber" autocomplete="off"
-              placeholder="Número de Documento" required>
+          <div class="row">
+            <div class="form-group col">
+              <label for="countryId">Pais</label>
+              <select class="custom-select" name="n6" id="countryId" [(ngModel)]="user.countryId" (ngModelChange)="cargarDepartamentos($event)"
+                required>
+                <option *ngFor="let country of countries" [ngValue]="country.id">{{country.name}}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col">
-            <label for="countryId">Pais</label>
-            <select class="custom-select" name="n6" id="countryId" [(ngModel)]="user.countryId" (ngModelChange)="cargarDepartamentos($event)" required>
-              <option *ngFor="let country of countries" [ngValue]="country.id">{{country.name}}</option>
-            </select>
+          <div class="row">
+            <div class="form-group col">
+              <label for="stateId">Departamento</label>
+              <select class="custom-select" name="n7" [(ngModel)]="user.stateId" (ngModelChange)="cargarCiudades($event)" required>
+                <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
+              </select>
+            </div>
+            <div class="form-group col">
+              <label for="cityId">Ciudad</label>
+              <select class="custom-select" name="n8" [(ngModel)]="user.cityId" required>
+                <option *ngFor="let city of cities" [ngValue]="city.id">{{city.name}}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col">
-            <label for="stateId">Departamento</label>
-            <select class="custom-select" name="n7" [(ngModel)]="user.stateId" (ngModelChange)="cargarCiudades($event)" required>
-              <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
-            </select>
-          </div>
-          <div class="form-group col">
-            <label for="cityId">Ciudad</label>
-            <select class="custom-select" name="n8" [(ngModel)]="user.cityId" required>
-              <option *ngFor="let city of cities" [ngValue]="city.id">{{city.name}}</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary custom-btn"  [disabled]="!form.valid" (click)="modificar()">Modificar</button>
-      </form>
+          <button type="submit" class="btn btn-primary custom-btn" [disabled]="!form.valid" (click)="modificar()">Guardar</button>
+        </form>
+      </div>
+      <div class="col-2"></div>
     </div>
-    <div class="col-2"></div>
   </div>
 </div>
 <ngx-spinner bdColor="rgba(255,255,255,0.94)" size="large" color="#003891" type="pacman"></ngx-spinner>

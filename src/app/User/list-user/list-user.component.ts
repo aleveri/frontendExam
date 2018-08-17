@@ -34,6 +34,10 @@ export class ListUserComponent implements OnInit {
     this.router.navigate(['/dashboard/user/update']);
   }
 
+  crear() {
+    this.router.navigate(['/dashboard/user/create']);
+  }
+
   borrar(param: any) {
     this.spinner.show();
     this.userService.borrar(param).subscribe(x => {

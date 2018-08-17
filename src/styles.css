@@ -1,15 +1,15 @@
 .custom-btn {
     background-color: transparent;
-    border: 1px solid #003891;
-    color: #003891;
+    border: 1px solid #2e2e7e;
+    color: #2e2e7e;
     margin: auto;
     display: block;
     margin: 20px auto;
 }
 .custom-btn:hover
 {
-    background-color: #003891;
-    border: 1px solid #003891;
+    background-color: #2e2e7e;
+    border: 1px solid #2e2e7e;
     color:#fff;
 }
 .row{
@@ -26,7 +26,7 @@
 }
 .section
 {
-    background-color: #003891;
+    background-color: #2e2e7e;
     border:solid transparent;
 }
 .form-container
@@ -35,4 +35,25 @@
     border: 1px solid #ced4da;
     border-radius: 10px;
     padding: 20px;
+}
+.thead
+{
+    background-color: #2e2e7e;
+}
+.thead-font-color
+{
+    color:#ffffff;
+}
+.aling-right
+{
+    text-align: right;
+}
+.plus-icon
+{
+    padding: 14px 15px;
+    color: #ffffff;
+    background-color: #e37300;
+    border-radius: 100%;
+    text-align: center;
+    margin: 10px auto;
 }
