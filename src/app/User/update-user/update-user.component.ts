@@ -29,23 +29,22 @@ export class UpdateUserComponent implements OnInit {
     private router: Router,
     private catalogService: CatalogService) {
     this.user = this.dataService.getData();
-    if (this.user) {
-      this.user.countryId = undefined;
-      this.user.stateId = undefined;
-      this.user.cityId = undefined;
-      this.documentTypes = DocumentTypeEnum;
-    }
   }
 
   ngOnInit() {
-    this.spinner.show();
-    this.catalogService.listByType(['1', '10', '0']).subscribe((x: any) => {
-      this.countries = x.resultado;
-      this.spinner.hide();
-    }), (error) => {
-      this.spinner.hide();
-      alert(error.error);
-    };
+    if (this.user) {
+      this.spinner.show();
+      this.catalogService.paramsForUpdate([this.user.countryId, this.user.stateId]).subscribe((x: any) => {
+        this.countries = x[0].resultado as any;
+        this.states = x[1].resultado as any;
+        this.cities = x[2].resultado as any;
+        this.documentTypes = DocumentTypeEnum;
+        this.spinner.hide();
+      }), (error) => {
+        this.spinner.hide();
+        alert(error.error);
+      };
+    }
   }
 
   cargarDepartamentos(param) {
@@ -75,4 +74,7 @@ export class UpdateUserComponent implements OnInit {
     });
   }
 
+  cancelar() {
+    this.router.navigate(['/dashboard/user/list']);
+  }
 }

@@ -59,7 +59,14 @@
               </select>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary custom-btn" [disabled]="!form.valid" (click)="crear()">Guardar</button>
+          <div class="row">
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary custom-btn btn-block" (click)="cancelar()">Cancelar</button>
+            </div>
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary custom-btn btn-block" [disabled]="!form.valid" (click)="crear()">Guardar</button>
+            </div>
+          </div>
         </form>
       </div>
       <div class="col-2"></div>

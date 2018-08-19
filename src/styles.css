@@ -8,9 +8,16 @@
 }
 .custom-btn:hover
 {
-    background-color: #2e2e7e;
-    border: 1px solid #2e2e7e;
+    background-color: #e37300;
+    border: 1px solid #e37300;
     color:#fff;
+}
+
+.custom-btn:disabled
+{
+    color: #2e2e7e;
+    background-color: #fff;
+    border-color: #2e2e7e;
 }
 .row{
     margin-top: 20px;

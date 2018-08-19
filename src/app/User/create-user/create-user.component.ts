@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
 export class CreateUserComponent implements OnInit {
 
   @ViewChild(NgForm) form;
-  
+
   user: User;
   documentTypes: any[];
   countries: any[];
@@ -66,6 +66,10 @@ export class CreateUserComponent implements OnInit {
       this.spinner.hide();
       alert(error.error);
     });
+  }
+
+  cancelar() {
+    this.router.navigate(['/dashboard/user/list']);
   }
 
 }
